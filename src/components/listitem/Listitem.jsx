@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import '../listitem/listitem.scss';
 import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined } from '@mui/icons-material';
+import video from '../video/video.mp4' ;
 
 function Listitem(index) {
   const [isHovered, setisHovered] = useState(false);
   const leftValue = isHovered && (index.index * 225) - 50 + index.index * 2.5;
-  const trailer = "https://www.pexels.com/video/snow-wood-light-road-19311447/";
   return (
     <div
       className='listItem'
@@ -18,7 +18,7 @@ function Listitem(index) {
         alt='img' />
       {isHovered && (
         <>
-          <video src={trailer} autoPlay={true} loop />
+          <video src={video} autoPlay={true} loop />
           <div className="itemInfo">
             <div className="icons">
               <PlayArrow className='icon' />
