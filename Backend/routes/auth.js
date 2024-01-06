@@ -3,7 +3,7 @@ const User = require('../models/User');
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 require('dotenv').config() ;
-const secretKey = process.env.SECRET_KEY ;
+const secretKey = process.env.SECRET_KEY || '12DHCKS';
 
 
 //Register
