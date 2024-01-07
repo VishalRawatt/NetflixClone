@@ -1,10 +1,7 @@
 const router = require("express").Router();
-const { response } = require("express");
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const verify = require("../verifyToken");
-require('dotenv').config();
-const secretKey = process.env.SECRET_KEY || '12DHCKS';
 
 //Update
 router.put("/:id", verify, async (req, res) => {
@@ -19,7 +16,7 @@ router.put("/:id", verify, async (req, res) => {
                 { new: true });
             res.status(200).json(updatedUser);
         } catch (err) {
-            response.status(500).json(err);
+            res.status(500).json(err);
         }
     }
     else {
