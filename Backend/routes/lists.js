@@ -46,7 +46,8 @@ router.get("/", verify, async (req, res) => {
                 ]);
             } else {
                 list = await List.aggregate([
-                    { $sample: { size: 10 } }
+                    { $sample: { size: 10 } },
+                    { $match: { type: typeQuery }},
                 ]);
             }
         }
