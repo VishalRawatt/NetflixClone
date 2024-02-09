@@ -2,12 +2,12 @@ import React from 'react'
 import './featured.scss';
 import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 
-export default function Featured(props){
+export default function Featured({type}){
   return (
     <div className='featured'>
-      {props.type && (
+      {type && (
         <div className="category">
-          <span>{props.type === "movie" ? "Movies" :"Series"}</span>
+          <span>{type === "movies" ? "Movies" :"Series"}</span>
           <select name = "genre" id="genre">
             <option value="Genre">Genre</option>
             <option value="Adventure">Adventure</option>

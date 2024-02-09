@@ -2,21 +2,30 @@ import React, { useState } from 'react'
 import './navbar.scss';
 import { ArrowDropDownCircleOutlined, Notifications, Search } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
+import {Link} from "react-router-dom" ;
 
 const Navbar = () => {
-    const [isScolled, setisScolled] = useState(false) ;
+    const [isScrolled, setisScrolled] = useState(false) ;
     window.onscroll = ()=>{
-        setisScolled(window.pageYOffset === 0 ? false : true);
+        setisScrolled(window.pageYOffset === 0 ? false : true);
         return ()=> (window.onscroll = null ) ;
     };
     return (
-        <div className={isScolled ? "navbar scrolled":"navbar"}>
+        <div className={isScrolled ? "navbar scrolled":"navbar"}>
             <div className="container">
                 <div className="left">
                     <img src='https://imgs.search.brave.com/iMK0bpQOHFE9qAS6J2UI9mfJ97x8nhrepANtIF_PSds/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODBiNTdmY2Q5OTk2/ZTI0YmM0M2M1Mjku/cG5n' alt='logo' />
                     <span>Home</span>
-                    <span>Series</span>
-                    <span>Movies</span>
+                    <Link to="/series" className='link'>
+                        <span>
+                            Series
+                        </span>
+                    </Link>
+                    <Link to="/movies" className='link'>
+                        <span>
+                            Movies
+                        </span>
+                    </Link>
                     <span>Popular</span>
                     <span>My List</span>
                 </div>
