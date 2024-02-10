@@ -13,7 +13,7 @@ const Home = ({type}) => {
     const getRandomLists = async() =>{
       try{
         const res =await axios.get(`
-        lists${type && "?type="+type}&${genre && "genre="+genre}
+        lists${type ? "?type="+type : ""}&${genre ? "&genre="+genre : ""}
         `);
         setLists(res.data) ;
       }catch(e){
@@ -21,7 +21,7 @@ const Home = ({type}) => {
       }
     };
     getRandomLists() ;
-  })
+  },[type,genre]);
   return (
     <div className='home'>
       <Navbar/>
