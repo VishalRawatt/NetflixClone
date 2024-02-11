@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './featured.scss';
 import { InfoOutlined, PlayArrow } from '@mui/icons-material';
+import axios from 'axios';
 
-export default function Featured({type}){
+export default function Featured({ type }){
+  const [content, setContent] = useState({}) ;
+  useEffect(() =>{
+    const getRandomContent = async()=>{
+      try{
+        const res = await axios.get(`/movies/random?type=${type}`,{
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OTk3N2Y0Njk3MzZmYjE1ZjM0MGVhZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNzU3ODQwOCwiZXhwIjoxNzEwMTcwNDA4fQ.y4fpQXutLDZriEjOD_IoN_vKhZKYD8GZwv9NhRnUKTg",
+          },
+        });
+        setContent(res.data[0]) ;
+      }catch(e){
+        console.log(e) ;
+      }
+    };
+    getRandomContent() ;
+  },[type]);
   return (
     <div className='featured'>
       {type && (
@@ -25,11 +43,11 @@ export default function Featured({type}){
 
         </div>
       )}
-      <img src='https://assets.nflxext.com/ffe/siteui/vlv3/ca6a7616-0acb-4bc5-be25-c4deef0419a7/c5af601a-6657-4531-8f82-22e629a3795e/IN-en-20231211-popsignuptwoweeks-perspective_alpha_website_large.jpg' alt='background'/>
+      <img src={content.img} alt='background'/>
       <div className="info">
-        <img src='https://imgs.search.brave.com/awrUJnbIVPQpkROzYh9QzxfMKwoHfHa53_JotXBu8io/rs:fit:860:0:0/g:ce/aHR0cHM6Ly92YXJp/ZXR5LmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMy8xMS9o/b21lbGFuZGVyLmpw/Zz93PTEwMDAmaD01/NjMmY3JvcD0x' alt='img' />
+        <img src={content.imgSm} alt='img' />
         <span className='desc'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat odio et impedit quae pariatur, vel, vero quia molestiae optio aliquam deleniti consequuntur nisi maxime, cum ad dolorum repudiandae cumque quod.
+          {content.desc}
         </span>
         <div className="buttons">
           <button className="play"><PlayArrow/><span>Play</span></button>
