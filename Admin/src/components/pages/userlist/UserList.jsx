@@ -1,3 +1,4 @@
+import { DeleteOutlined } from "@mui/icons-material";
 import "./userlist.css"
 import { DataGrid } from '@mui/x-data-grid';
 
@@ -29,8 +30,10 @@ export default function UserList() {
       width: 150,
       renderCell: (params)=>{
         return(
+          <>
           <button className="userListEdit">Edit</button>
-          
+          <DeleteOutlined className="userListDelete"/>
+          </>
         )
       }
     }
