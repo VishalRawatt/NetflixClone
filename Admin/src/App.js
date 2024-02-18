@@ -13,7 +13,7 @@ function App() {
         <Sidebar/>
         <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/" element={<UserList/>}/>
+        <Route path="/users" element={<UserList/>}/>
         </Routes>
       </div>
       </BrowserRouter>
