@@ -49,6 +49,114 @@ export const userData = [
     },
   ];
 
+  export const productData = [
+    {
+      name: "Jan",
+      "Sales": 4000,
+    },
+    {
+      name: "Feb",
+      "Sales": 3000,
+    },
+    {
+      name: "Mar",
+      "Sales": 5000,
+    },
+  ];
+
+  export const productRows = [
+    {
+      id: 1,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 2,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 3,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 4,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 5,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 6,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 7,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 8,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 9,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+    {
+      id: 10,
+      name: "Apple Airpods",
+      img:
+        "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      stock: 123,
+      status: "active",
+      price: "$120.00",
+    },
+  ];
+
   export const userRow = [
     { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
     { id: 2, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
