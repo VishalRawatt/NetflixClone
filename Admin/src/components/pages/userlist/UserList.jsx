@@ -1,8 +1,17 @@
+import { useState } from "react";
 import { DeleteOutlined } from "@mui/icons-material";
 import "./userlist.css"
 import { DataGrid } from '@mui/x-data-grid';
+import { Link } from "react-router-dom";
+import { userRow } from "../../../dummydata";
 
 export default function UserList() {
+  const [data, setData] = useState(userRow)
+
+  const handleDelete = (id) => {
+    setData(data.filter(item=>item.id !== id)) ;
+  } ; 
+
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     { field: 'user', headerName: 'User', width: 200 },
@@ -31,32 +40,20 @@ export default function UserList() {
       renderCell: (params)=>{
         return(
           <>
+          <Link to={"/user/"+params.row.id}>
           <button className="userListEdit">Edit</button>
-          <DeleteOutlined className="userListDelete"/>
+          </Link>
+          <DeleteOutlined className="userListDelete" onClick={()=>{handleDelete(params.row.id)}}/>
           </>
         )
       }
     }
   ];
   
-  const rows = [
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-    { id: 1, user: "Pankaj Srivastava", avatar: "https://imgs.search.brave.com/m60PMsqHReIkayurO5KD9kLSNT0kn7rUkUBJ86DZOBU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODAwODEzNC9waG90/by9pbmRpYW4tbWFu/LWhlYWRzaG90Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz10/dFVVaG5Yd1RWaEdx/RWk2UVU0elNrcDFL/UDQ0bENLNFdJd29T/by1MWHBZPQ",email:"EmailId@gmail.com",status:"active",transaction:"$120.00",},
-  ];
   return (
     <div className="userList" style={{ height: 400, width: '100%' }}>
       <DataGrid
-        rows={rows}
+        rows={data}
         columns={columns}
         pageSize={8}
         pageSizeOptions={[5, 10]}
