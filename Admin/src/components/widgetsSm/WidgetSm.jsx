@@ -1,67 +1,51 @@
 import { Visibility } from '@mui/icons-material';
-import './widgetsm.css' ;
+import './widgetsm.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function WidgetSm() {
-  return (
-    <div className='widgetSm'>
-      <span className="widgetSmTitle">New Join Members</span>
-      <ul className="widgetSmList">
-        <li className="widgetSmListItem">
-            <img src="https://imgs.search.brave.com/Vb4C_j84dn-FQalxLwn7EXS9hMknJlZrTFexYxppuPw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/MjI1NTYxODk2Mzkt/YjE1MGVkOWM0MzMw/P3E9ODAmdz0xMDAw/JmF1dG89Zm9ybWF0/JmZpdD1jcm9wJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4TVRCOGZI/Qmxjbk52Ym1GOFpX/NThNSHg4TUh4OGZE/QT0.jpeg" alt="imageSmall" className="widgetSmImg" />
-            <div className="widgetSmUser">
-                <span className="widgetSmUsername">Vishal Rawat</span>
-                <span className="widgetSmUserTitle">Software Engineer</span>
-            </div>
-            <div className="widgetSmButton">
-                <Visibility className/>
-                Display
-            </div>
-        </li>
-        <li className="widgetSmListItem">
-            <img src="https://imgs.search.brave.com/Vb4C_j84dn-FQalxLwn7EXS9hMknJlZrTFexYxppuPw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/MjI1NTYxODk2Mzkt/YjE1MGVkOWM0MzMw/P3E9ODAmdz0xMDAw/JmF1dG89Zm9ybWF0/JmZpdD1jcm9wJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4TVRCOGZI/Qmxjbk52Ym1GOFpX/NThNSHg4TUh4OGZE/QT0.jpeg" alt="imageSmall" className="widgetSmImg" />
-            <div className="widgetSmUser">
-                <span className="widgetSmUsername">Vishal Rawat</span>
-                <span className="widgetSmUserTitle">Software Engineer</span>
-            </div>
-            <div className="widgetSmButton">
-                <Visibility className="widgetSmIcon"/>
-                Display
-            </div>
-        </li>
-        <li className="widgetSmListItem">
-            <img src="https://imgs.search.brave.com/Vb4C_j84dn-FQalxLwn7EXS9hMknJlZrTFexYxppuPw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/MjI1NTYxODk2Mzkt/YjE1MGVkOWM0MzMw/P3E9ODAmdz0xMDAw/JmF1dG89Zm9ybWF0/JmZpdD1jcm9wJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4TVRCOGZI/Qmxjbk52Ym1GOFpX/NThNSHg4TUh4OGZE/QT0.jpeg" alt="imageSmall" className="widgetSmImg" />
-            <div className="widgetSmUser">
-                <span className="widgetSmUsername">Vishal Rawat</span>
-                <span className="widgetSmUserTitle">Software Engineer</span>
-            </div>
-            <div className="widgetSmButton">
-                <Visibility className="widgetSmIcon"/>
-                Display
-            </div>
-        </li>
-        <li className="widgetSmListItem">
-            <img src="https://imgs.search.brave.com/Vb4C_j84dn-FQalxLwn7EXS9hMknJlZrTFexYxppuPw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/MjI1NTYxODk2Mzkt/YjE1MGVkOWM0MzMw/P3E9ODAmdz0xMDAw/JmF1dG89Zm9ybWF0/JmZpdD1jcm9wJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4TVRCOGZI/Qmxjbk52Ym1GOFpX/NThNSHg4TUh4OGZE/QT0.jpeg" alt="imageSmall" className="widgetSmImg" />
-            <div className="widgetSmUser">
-                <span className="widgetSmUsername">Vishal Rawat</span>
-                <span className="widgetSmUserTitle">Software Engineer</span>
-            </div>
-            <div className="widgetSmButton">
-                <Visibility className="widgetSmIcon"/>
-                Display
-            </div>
-        </li>
-        <li className="widgetSmListItem">
-            <img src="https://imgs.search.brave.com/Vb4C_j84dn-FQalxLwn7EXS9hMknJlZrTFexYxppuPw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMudW5zcGxhc2gu/Y29tL3Bob3RvLTE1/MjI1NTYxODk2Mzkt/YjE1MGVkOWM0MzMw/P3E9ODAmdz0xMDAw/JmF1dG89Zm9ybWF0/JmZpdD1jcm9wJml4/bGliPXJiLTQuMC4z/Jml4aWQ9TTN3eE1q/QTNmREI4TUh4elpX/RnlZMmg4TVRCOGZI/Qmxjbk52Ym1GOFpX/NThNSHg4TUh4OGZE/QT0.jpeg" alt="imageSmall" className="widgetSmImg" />
-            <div className="widgetSmUser">
-                <span className="widgetSmUsername">Vishal Rawat</span>
-                <span className="widgetSmUserTitle">Software Engineer</span>
-            </div>
-            <div className="widgetSmButton">
-                <Visibility className="widgetSmIcon"/>
-                Display
-            </div>
-        </li>
-      </ul>
-    </div>
-  )
+    const [newUsers, setnewUsers] = useState([]);
+    useEffect(() => {
+        const getNewUsers = async () => {
+            try {
+                const res = await axios.get("/users?new=true", {
+                    headers: {
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OTk3N2Y0Njk3MzZmYjE1ZjM0MGVhZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQ1MjAwNiwiZXhwIjoxNzExMDQ0MDA2fQ.h-CG5A457YnjV9CJ_mV6e32bkhX82V_pGwMKJHQBWmc"
+                    }
+                });
+                setnewUsers(res.data);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        getNewUsers();
+    },[])
+    return (
+        <div className='widgetSm'>
+            <span className="widgetSmTitle">New Join Members</span>
+            <ul className="widgetSmList">
+                { newUsers && newUsers.length > 0 ? (
+                    newUsers.map(user=>(
+                <li className="widgetSmListItem" key={user.id}>
+                    <img 
+                    src={user.profilePic || "https://th.bing.com/th/id/OIP.7DASfuq_r3rOiq4AAs75igAAAA?w=161&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" } 
+                    alt="imageSmall" 
+                    className="widgetSmImg" />
+                    <div className="widgetSmUser">
+                        <span className="widgetSmUsername">{user.username}</span>
+                        <span className="widgetSmUserTitle">Software Engineer</span>
+                    </div>
+                    <button className="widgetSmButton">
+                        <Visibility className />
+                        Display
+                    </button>
+                </li>
+                ))
+                ):(
+                    <div>No users</div>
+                )
+                }
+            </ul>
+        </div>
+    )
 }
