@@ -9,6 +9,7 @@ import NewUser from "./components/pages/newuser/NewUser";
 import ProductList from "./components/pages/productlist/ProductList";
 import Product from "./components/pages/product/Product";
 import NewProduct from "./components/pages/newProduct/NewProduct";
+import Login from "./components/pages/login/Login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Sidebar/>
         <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/users" element={<UserList/>}/>
         <Route path="/user/:id" element={<User/>}/>
         <Route path="/newUser" element={<NewUser/>}/>
