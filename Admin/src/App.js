@@ -10,22 +10,30 @@ import ProductList from "./components/pages/productlist/ProductList";
 import Product from "./components/pages/product/Product";
 import NewProduct from "./components/pages/newProduct/NewProduct";
 import Login from "./components/pages/login/Login";
+import { useContext } from "react";
+import { AuthContext } from "./context/authContext/AuthContext";
 
 function App() {
+  const {user} = useContext(AuthContext);
   return (
     <BrowserRouter>
       <Topbar/>
       <div className="container">
         <Sidebar/>
         <Routes>
+        <Route path="/login" element={user ? <Home/>: <Login/> }/>
+        
+        {user &&
+        <>
         <Route path="/" element={<Home/>}/>
-        <Route path="/login" element={<Login/>}/>
         <Route path="/users" element={<UserList/>}/>
         <Route path="/user/:id" element={<User/>}/>
         <Route path="/newUser" element={<NewUser/>}/>
         <Route path="/movies" element={<ProductList/>}/>
         <Route path="/product/:id" element={<Product/>}/>
         <Route path="/newProduct" element={<NewProduct/>}/>
+        </>
+      }
         </Routes>
       </div>
       </BrowserRouter>

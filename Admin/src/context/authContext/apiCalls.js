@@ -4,7 +4,7 @@ import { loginStart, loginFailure, loginSuccess } from "../authContext/AuthActio
 export const login = async(user,dispatch)=>{
     dispatch(loginStart()) ;
     try{
-        const res = axios.post("auth/login",user);
+        const res = await axios.post("auth/login",user);
         dispatch(loginSuccess(res.data)) ;
 
     }catch(e){
