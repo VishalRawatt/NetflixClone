@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
-import "./product.css";
+import { Link, useLocation } from "react-router-dom";
+import "./movie.css";
 import Chart from "../charts/Chart";
 import { productData } from "../../../dummydata";
 import { Publish } from "@mui/icons-material";
 
 
 export default function Product() {
+    // const location = useLocation() ;
+    // const movie = location.movie ;
   return (
     <div className="product">
       <div className="productTitleContainer">
@@ -62,7 +64,7 @@ export default function Product() {
               <div className="productFormRight">
                   <div className="productUpload">
                       <img src="https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="productUploadImg" />
-                      <label for="file">
+                      <label htmlFor="file">
                           <Publish/>
                       </label>
                       <input type="file" id="file" style={{display:"none"}} />

@@ -15,7 +15,8 @@ export default function UserList() {
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     { field: 'user', headerName: 'User', width: 200 },
-    { field: 'email', headerName: 'Email', width: 200,renderCell:(params)=>{
+    { field: 'email', headerName: 'Email', width: 200,
+    renderCell:(params)=>{
       return(
         <div className="userListUser">
           <img className="userListImg" src={params.row.avatar} alt="its img"/>

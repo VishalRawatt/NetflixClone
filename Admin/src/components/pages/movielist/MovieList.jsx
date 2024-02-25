@@ -1,15 +1,22 @@
-import "./productList.css";
+import "./movieList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
 import { productRows } from "../../../dummydata";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState, useEffect } from "react";
+import { MovieContext, MovieContextProvider } from "../../../context/movieContext/MovieContext";
+import { getMovies } from "../../../context/movieContext/apiCalls";
 
 export default function ProductList() {
-  const [data, setData] = useState(productRows);
+  // const [data, setData] = useState(productRows) ;
+  const { movies, dispatch } = useContext(MovieContext);
+  
+  useEffect(() => {
+    getMovies(dispatch);
+  }, [dispatch]);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    // setData(data.filter((item) => item.id !== id));
   };
 
   const columns = [
@@ -27,7 +34,11 @@ export default function ProductList() {
         );
       },
     },
-    { field: "stock", headerName: "Stock", width: 200 },
+    {
+      field: "stock",
+      headerName: "Stock",
+      width: 200
+    },
     {
       field: "status",
       headerName: "Status",
@@ -45,7 +56,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row.id}>
+            <Link to={"/movie/" + params.row._id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -60,13 +71,13 @@ export default function ProductList() {
 
   return (
     <div className="productList">
-      <DataGrid
-        rows={data}
+      {/* <DataGrid
+        rows={movies}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
         checkboxSelection
-      />
+       /> */}
     </div>
   );
 }

@@ -6,21 +6,27 @@ const AuthReducer = (state, action) => {
                 isFetching: false,
                 error: false,
             }
-            case "LOGIN_SUCCESS":
+        case "LOGIN_SUCCESS":
             return {
                 user: action.payload,
                 isFetching: false,
                 error: false,
             }
-            case "LOGIN_FAILURE":
+        case "LOGIN_FAILURE":
             return {
                 user: null,
                 isFetching: false,
                 error: true,
             }
-            default:
-                return {...state} ;
+        case "LOGOUT":
+            return {
+                user: null,
+                isFetching: false,
+                error: false,
+            }
+        default:
+            return { ...state };
     }
 };
 
-export default AuthReducer ;
+export default AuthReducer;

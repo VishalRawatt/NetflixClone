@@ -6,9 +6,9 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import UserList from "./components/pages/userlist/Userlist";
 import User from "./components/pages/user/User";
 import NewUser from "./components/pages/newuser/NewUser";
-import ProductList from "./components/pages/productlist/ProductList";
-import Product from "./components/pages/product/Product";
-import NewProduct from "./components/pages/newProduct/NewProduct";
+import ProductList from "./components/pages/movielist/MovieList";
+import Product from "./components/pages/movie/movie";
+import NewProduct from "./components/pages/newMovie/NewMovie";
 import Login from "./components/pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
@@ -22,7 +22,6 @@ function App() {
         <Sidebar/>
         <Routes>
         <Route path="/login" element={user ? <Home/>: <Login/> }/>
-        
         {user &&
         <>
         <Route path="/" element={<Home/>}/>
@@ -30,8 +29,8 @@ function App() {
         <Route path="/user/:id" element={<User/>}/>
         <Route path="/newUser" element={<NewUser/>}/>
         <Route path="/movies" element={<ProductList/>}/>
-        <Route path="/product/:id" element={<Product/>}/>
-        <Route path="/newProduct" element={<NewProduct/>}/>
+        <Route path="/movie/:id" element={<Product/>}/>
+        <Route path="/newMovie" element={<NewProduct/>}/>
         </>
       }
         </Routes>

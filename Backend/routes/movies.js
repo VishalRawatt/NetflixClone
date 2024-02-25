@@ -4,13 +4,13 @@ const verify = require("../verifyToken");
 
 //CREATE
 router.post("/", verify, async (req, res) => {
-    const newMovie = new Movie(req.body) ;
     if (req.user.isAdmin) {
+        const newMovie = new Movie(req.body) ;
         try {
             const savedMovie = await newMovie.save();
-            res.status(200).json(savedMovie);
+            res.status(201).json(savedMovie);
         } catch (err) {
-            res.status(404).json("Movie cannot be saved");
+            res.status(500).json("Movie cannot be saved");
         }
     } else {
         res.status(403).json("You are not allowed !!");
@@ -74,7 +74,7 @@ router.get("/random", verify, async (req, res) => {
        }
        res.status(200).json(movie) ;    
     } catch(err) {
-        res.status(403).json(err);
+        res.status(403).json({error :err.message});
     }
 })
 
