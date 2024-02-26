@@ -8,15 +8,15 @@ import { MovieContext, MovieContextProvider } from "../../context/movieContext/M
 import { getMovies } from "../../context/movieContext/apiCalls";
 
 export default function ProductList() {
-  // const [data, setData] = useState(productRows) ;
-  const { movies, dispatch } = useContext(MovieContext);
+  const [data, setData] = useState(productRows) ;
+  // const { movies, dispatch } = useContext(MovieContext);
   
-  useEffect(() => {
-    getMovies(dispatch);
-  }, [dispatch]);
+  // useEffect(() => {
+  //   getMovies(dispatch);
+  // }, [dispatch]) ;
 
   const handleDelete = (id) => {
-    // setData(data.filter((item) => item.id !== id));
+    setData(data.filter((item) => item.id !== id));
   };
 
   const columns = [
@@ -65,19 +65,17 @@ export default function ProductList() {
             />
           </>
         );
-      },
-    },
+      }}
   ];
-
   return (
     <div className="productList">
-      {/* <DataGrid
-        rows={movies}
+      <DataGrid
+        rows={data}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
         checkboxSelection
-       /> */}
+       />
     </div>
   );
 }

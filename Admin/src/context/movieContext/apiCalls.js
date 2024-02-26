@@ -21,6 +21,7 @@ export const getMovies = async (dispatch) => {
     });
     dispatch(getMoviesSuccess(res.data));
   } catch (err) {
+    console.error(err);
     dispatch(getMoviesFailure());
   }
 };
@@ -30,12 +31,13 @@ export const createMovie = async (movie, dispatch) => {
   dispatch(createMovieStart());
   try {
     const res = await axios.post("/movies", movie, {
-      headers: {
+      headers: { 
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
     });
     dispatch(createMovieSuccess(res.data));
   } catch (err) {
+    console.error(err);
     dispatch(createMovieFailure());
   }
 };
@@ -51,6 +53,7 @@ export const deleteMovie = async (id, dispatch) => {
     });
     dispatch(deleteMovieSuccess(id));
   } catch (err) {
+    console.error(err);
     dispatch(deleteMovieFailure());
   }
 };

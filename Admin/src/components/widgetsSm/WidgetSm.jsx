@@ -26,7 +26,7 @@ export default function WidgetSm() {
             <ul className="widgetSmList">
                 { newUsers && newUsers.length > 0 ? (
                     newUsers.map(user=>(
-                <li className="widgetSmListItem">
+                <li className="widgetSmListItem" key={user._id}>
                     <img 
                     src={user.profilePic || "https://th.bing.com/th/id/OIP.7DASfuq_r3rOiq4AAs75igAAAA?w=161&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" } 
                     alt="imageSmall" 
