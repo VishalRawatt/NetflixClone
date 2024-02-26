@@ -1,11 +1,11 @@
 import "./movieList.css";
 import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutline } from "@mui/icons-material";
-import { productRows } from "../../../dummydata";
+import { productRows } from "../../dummydata" ;
 import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
-import { MovieContext, MovieContextProvider } from "../../../context/movieContext/MovieContext";
-import { getMovies } from "../../../context/movieContext/apiCalls";
+import { MovieContext, MovieContextProvider } from "../../context/movieContext/MovieContext" ;
+import { getMovies } from "../../context/movieContext/apiCalls";
 
 export default function ProductList() {
   // const [data, setData] = useState(productRows) ;

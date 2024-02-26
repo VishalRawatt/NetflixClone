@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import "./movie.css";
-import Chart from "../charts/Chart";
-import { productData } from "../../../dummydata";
+import Chart from "../../components/charts/Chart";
+import { productData } from "../../dummydata";
 import { Publish } from "@mui/icons-material";
 
 

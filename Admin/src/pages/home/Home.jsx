@@ -1,8 +1,8 @@
-import Chart from '../charts/Chart';
-import Featuredinfo from '../featuredinfo/Featuredinfo';
+import Chart from '../../components/charts/Chart';
+import Featuredinfo from '../../components/featuredinfo/Featuredinfo';
 import './home.css' ;
-import WidgetLg from '../../widgetsLg/WidgetLg.jsx';
-import WidgetSm from '../../widgetsSm/WidgetSm.jsx';
+import WidgetLg from '../../components/widgetsLg/WidgetLg';
+import WidgetSm from '../../components/widgetsSm/WidgetSm.jsx';
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 

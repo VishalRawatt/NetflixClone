@@ -1,15 +1,15 @@
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
 import './App.css' ;
-import Home from "./components/pages/home/Home";
+import Home from "./pages/home/Home";
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import UserList from "./components/pages/userlist/Userlist";
-import User from "./components/pages/user/User";
-import NewUser from "./components/pages/newuser/NewUser";
-import ProductList from "./components/pages/movielist/MovieList";
-import Product from "./components/pages/movie/movie";
-import NewProduct from "./components/pages/newMovie/NewMovie";
-import Login from "./components/pages/login/Login";
+import UserList from "./pages/userlist/Userlist";
+import User from "./pages/user/User";
+import NewUser from "./pages/newuser/NewUser";
+import ProductList from "./pages/movielist/MovieList";
+import Product from "./pages/movie/movie";
+import NewProduct from "./pages/newMovie/NewMovie";
+import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 
