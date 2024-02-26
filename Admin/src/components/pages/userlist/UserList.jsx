@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { userRow } from "../../../dummydata";
 
 export default function UserList() {
-  const [data, setData] = useState(userRow)
+  const [data, setData] = useState(userRow) ;
 
   const handleDelete = (id) => {
     setData(data.filter(item=>item.id !== id)) ;
