@@ -1,6 +1,6 @@
 import "./newMovie.css";
 import { useState, useContext } from "react";
-import storage from "../../Firebase";
+import storage from "../../firebase";
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 
@@ -22,32 +22,32 @@ export default function NewMovie() {
 
   const upload = (items) => {
     items.forEach((item) => {
-      if(item.file){
+      if (item.file) {
         const storageRef = storage.ref();
         const itemRef = storageRef.child(`items/${item.file.name}`);
         const uploadTask = itemRef.put(item.file);
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-            setMovie((prev) => {
-              return { ...prev, [item.label]: url };
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+              setMovie((prev) => {
+                return { ...prev, [item.label]: url };
+              });
+              setUploaded((prev) => prev + 1);
             });
-            setUploaded((prev) => prev + 1);
-          });
-        }
-      );
+          }
+        );
       }
-      else{
-        console.log("iTEM ISSUE") ;
+      else {
+        console.log("iTEM ISSUE");
       }
     });
   };
