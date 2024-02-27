@@ -1,8 +1,7 @@
 import "./newMovie.css";
-import { useState } from "react";
-import storage from "../../firebase";
+import { useState, useContext } from "react";
+import storage from "../../Firebase";
 import { createMovie } from "../../context/movieContext/apiCalls";
-import { useContext } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 
 export default function NewMovie() {
@@ -23,8 +22,10 @@ export default function NewMovie() {
 
   const upload = (items) => {
     items.forEach((item) => {
-      const fileName = new Date().getTime() + item.label + item.file.name;
-      const uploadTask = storage.ref(`/items/${fileName}`).put(item.file);
+      if(item.file){
+        const storageRef = storage.ref();
+        const itemRef = storageRef.child(`items/${item.file.name}`);
+        const uploadTask = itemRef.put(item.file);
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -44,6 +45,10 @@ export default function NewMovie() {
           });
         }
       );
+      }
+      else{
+        console.log("iTEM ISSUE") ;
+      }
     });
   };
 
@@ -56,7 +61,6 @@ export default function NewMovie() {
       { file: trailer, label: "trailer" },
       { file: video, label: "video" },
     ]);
-     console.log("Button clicked");
   };
 
   const handleSubmit = (e) => {

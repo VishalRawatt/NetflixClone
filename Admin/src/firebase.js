@@ -1,8 +1,8 @@
-import { initializeApp } from 'firebase/app';
-import { getStorage } from 'firebase/storage';
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCWJYfL3Y9O9umYNRVnILr6sIi7ChuZl3Y",
+  apiKey: process.env.API_KEY,
   authDomain: "netflix-clone-2fa8c.firebaseapp.com",
   projectId: "netflix-clone-2fa8c",
   storageBucket: "netflix-clone-2fa8c.appspot.com",
