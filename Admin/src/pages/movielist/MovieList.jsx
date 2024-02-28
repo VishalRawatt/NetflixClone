@@ -4,7 +4,7 @@ import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext" ;
-import { getMovies } from "../../context/movieContext/apiCalls";
+import { deleteMovie, getMovies } from "../../context/movieContext/apiCalls";
 
 export default function ProductList() {
   const { movies, dispatch } = useContext(MovieContext);
@@ -14,10 +14,8 @@ export default function ProductList() {
   }, [dispatch]) ;
 
   const handleDelete = (id) => {
-    // setData(data.filter((item) => item.id !== id));
+    deleteMovie(id, dispatch);
   };
-
-  console.log(movies) ;
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },

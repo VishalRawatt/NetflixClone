@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./movie.css";
 import Chart from "../../components/charts/Chart";
 import { productData } from "../../dummydata";

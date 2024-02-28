@@ -34,7 +34,7 @@ export default function NewMovie() {
           });
           setUploaded((prev) => prev + 1);
         });
-      });
+      }); 
 
       uploadTask.on(
         "state_changed",

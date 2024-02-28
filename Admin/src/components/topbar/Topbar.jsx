@@ -1,6 +1,6 @@
 import React from 'react'
 import "./topbar.css"
-import { Notifications, LanguageIcon, SettingsIcon,  } from '@mui/icons-material';
+import { Notifications,  } from '@mui/icons-material';
 
 export default function Topbar() {
   return (

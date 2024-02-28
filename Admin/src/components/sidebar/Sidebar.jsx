@@ -1,4 +1,4 @@
-import { AccountCircle, CurrencyRupeeOutlined, Equalizer, FeedbackOutlined, MailOutline, ManageAccounts, Message, Report,LineStyleOutlined, TimelineOutlined, TrendingUpOutlined, PlayArrow } from '@mui/icons-material';
+import { AccountCircle, Equalizer, FeedbackOutlined, MailOutline, ManageAccounts, Message, Report,LineStyleOutlined, TimelineOutlined, TrendingUpOutlined, PlayArrow, ListAltOutlined } from '@mui/icons-material';
 import './sidebar.css';
 import { Link } from 'react-router-dom';
 
@@ -40,10 +40,12 @@ export default function Sidebar() {
               Movies
             </li>
             </Link>
+            <Link to="/lists" className='link'>
             <li className="sidebarListItem">
-              <CurrencyRupeeOutlined className='sidebarIcon'/> 
-              Transactions
+              <ListAltOutlined className='sidebarIcon'/> 
+              Lists
             </li>
+            </Link>
             <li className="sidebarListItem">
               <Equalizer className='sidebarIcon'/> 
               Reports
