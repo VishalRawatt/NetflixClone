@@ -1,8 +1,9 @@
 import "./newMovie.css";
 import { useState, useContext } from "react";
-import storage from "../../firebase";
+import { storage } from "../../firebase";
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
@@ -23,34 +24,33 @@ export default function NewMovie() {
   const upload = (items) => {
     items.forEach((item) => {
       if (item.file) {
-        const storageRef = storage.ref();
-        const itemRef = storageRef.child(`items/${item.file.name}`);
-        const uploadTask = itemRef.put(item.file);
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            const progress =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log("Upload is " + progress + "% done");
-          },
-          (error) => {
-            console.log(error);
-          },
-          () => {
-            uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-              setMovie((prev) => {
-                return { ...prev, [item.label]: url };
-              });
-              setUploaded((prev) => prev + 1);
-            });
-          }
-        );
-      }
-      else {
-        console.log("iTEM ISSUE");
-      }
-    });
-  };
+        const fileName = new Date().getTime() + item.label + item.file.name;
+      const itemRef = ref(storage,`/items/${fileName}`) ;
+      const uploadTask = uploadBytesResumable(itemRef, item.file) ;
+      uploadTask.then((snapshot) => {
+        getDownloadURL(snapshot.ref).then((url) => {
+          setMovie((prev) => {
+            return { ...prev, [item.label]: url };
+          });
+          setUploaded((prev) => prev + 1);
+        });
+      });
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    } else {
+      console.log("ITEM ISSUE");
+    }
+  });
+};
 
   const handleUpload = (e) => {
     e.preventDefault();

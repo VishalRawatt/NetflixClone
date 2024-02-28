@@ -2,16 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: "netflix-clone-2fa8c.firebaseapp.com",
-  projectId: "netflix-clone-2fa8c",
-  storageBucket: "netflix-clone-2fa8c.appspot.com",
-  messagingSenderId: "569615724668",
-  appId: "1:569615724668:web:53b1700d85cfde456359f9",
-  measurementId: "G-37QMRE02YM"
+  apiKey: "AIzaSyC97AHnOoWL32lt6jPxL-6-8OAgLiadK6M",
+  authDomain: "netflix-dda33.firebaseapp.com",
+  projectId: "netflix-dda33",
+  storageBucket: "netflix-dda33.appspot.com",
+  messagingSenderId: "433595919054",
+  appId: "1:433595919054:web:71fc67b35a8dd0fd05be9f",
+  measurementId: "G-1JSGZV4S5P"
 };
 
 const app = initializeApp(firebaseConfig);
-const storage = getStorage(app);
-
-export default storage;
+export const storage = getStorage(app);
