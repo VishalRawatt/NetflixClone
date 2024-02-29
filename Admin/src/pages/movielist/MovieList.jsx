@@ -6,7 +6,7 @@ import { useContext, useEffect } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext" ;
 import { deleteMovie, getMovies } from "../../context/movieContext/apiCalls";
 
-export default function ProductList() {
+export default function MovieList() {
   const { movies, dispatch } = useContext(MovieContext);
   
   useEffect(() => {
