@@ -4,10 +4,12 @@ import { Publish } from "@mui/icons-material";
 
 export default function Movie() {
   const location = useLocation();
-  const movie = location.movie;
+  const movie = location.state?.movie ;
   console.log(movie);
   return (
     <div className="product">
+      {movie &&
+      <>
       <div className="productTitleContainer">
         <h1 className="productTitle">Movie</h1>
         <Link to="/newMovie">
@@ -17,7 +19,7 @@ export default function Movie() {
       <div className="productTop">
         <div className="productTopRight">
           <div className="productInfoTop">
-            <img src={movie.img} alt="" className="productInfoImg" />
+             <img src={movie.img} alt="" className="productInfoImg" />
             <span className="productName">{movie.title}</span>
           </div>
           <div className="productInfoBottom">
@@ -72,6 +74,8 @@ export default function Movie() {
           </div>
         </form>
       </div>
+      </>
+      }
     </div>
   );
 }
