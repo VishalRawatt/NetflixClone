@@ -1,10 +1,12 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import "./movie.css";
 import { Publish } from "@mui/icons-material";
 
 export default function Movie() {
   const location = useLocation();
-  const { movie }= location.state || {} ;
+  const movie = location.movie;
+  // const {id} = useParams() ;
+  // console.log(id);
   console.log(movie);
   return (
     <div className="product">
