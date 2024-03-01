@@ -4,7 +4,7 @@ import { Publish } from "@mui/icons-material";
 
 export default function Movie() {
   const location = useLocation();
-  const movie = location.state?.movie ;
+  const { movie }= location.state || {} ;
   console.log(movie);
   return (
     <div className="product">

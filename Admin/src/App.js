@@ -10,7 +10,7 @@ import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 import Listlist from "./pages/listList/Listlist";
-import Movie from "./pages/movie/movie";
+import Movie from "./pages/movie/Movie";
 import NewMovie from "./pages/newMovie/NewMovie";
 import MovieList from "./pages/movielist/MovieList";
 

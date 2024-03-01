@@ -20,9 +20,7 @@ export default function MovieList() {
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
-      field: "movie",
-      headerName: "Movie",
-      width: 200,
+      field: "movie", headerName: "Movie", width: 200,
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -33,29 +31,19 @@ export default function MovieList() {
       },
     },
     {
-      field: "genre",
-      headerName: "Genre",
-      width: 120
+      field: "genre", headerName: "Genre", width: 120
     },
     {
-      field: "year",
-      headerName: "Genre",
-      width: 120
+      field: "year", headerName: "Year", width: 120
     },
     {
-      field: "limit",
-      headerName: "Genre",
-      width: 120
+      field: "limit", headerName: "Limit", width: 120
     },
     {
-      field: "isSeries",
-      headerName: "Genre",
-      width: 120
+      field: "isSeries", headerName: "is Series ?", width: 120
     },
     {
-      field: "action",
-      headerName: "Action",
-      width: 150,
+      field: "action", headerName: "Action", width: 150,
       renderCell: (params) => {
         return (
           <>
