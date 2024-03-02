@@ -1,13 +1,31 @@
 import { Link, useLocation, useParams } from "react-router-dom";
+import axios from "axios";
 import "./movie.css";
 import { Publish } from "@mui/icons-material";
+import { useEffect, useState } from "react";
 
 export default function Movie() {
-  const location = useLocation();
-  const movie = location.movie;
-  // const {id} = useParams() ;
-  // console.log(id);
-  console.log(movie);
+  // const location = useLocation();
+  // const movie = location.state?.movie ;
+  const [movie, setMovie] = useState() ;
+  const {id} = useParams() ;
+
+  useEffect(()=>{
+    const getData = async() => {
+      await axios.get(`http://localhost:8080/api/movies/find/${id}`,{
+        headers: {
+          token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        }
+      }).then((res)=>{
+        setMovie(res.data) ;
+      })
+    }
+  },[id])
+  
+  const handleUpdate = () =>{
+    console.log("Button update");
+  }
+
   return (
     <div className="product">
       {movie &&
@@ -26,7 +44,7 @@ export default function Movie() {
           </div>
           <div className="productInfoBottom">
             <div className="productInfoItem">
-              <span className="productInfoKey">id:</span>
+              <span className="productInfoKey">id: </span>
               <span className="productInfoValue">{movie._id}</span>
             </div>
             <div className="productInfoItem">
@@ -72,7 +90,7 @@ export default function Movie() {
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="productButton">Update</button>
+            <button className="productButton" onClick={handleUpdate}>Update</button>
           </div>
         </form>
       </div>
