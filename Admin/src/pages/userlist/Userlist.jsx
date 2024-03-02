@@ -12,6 +12,8 @@ export default function UserList() {
     setData(data.filter(item=>item.id !== id)) ;
   } ; 
 
+  console.log(data) ;
+
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     { field: 'user', headerName: 'User', width: 200 },
