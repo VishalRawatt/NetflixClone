@@ -60,6 +60,15 @@ router.get("/", verify, async (req, res) => {
     }
 });
 
+//Get by id
+router.get("/find/:id", verify, async (req, res) => {
+    try{
+        const list = await List.findById(req.params.id) ;
+        res.status(201).json(list) ;
+    } catch(err) {
+        res.status(403).json(err);
+    }
+})
 
 
 module.exports = router
