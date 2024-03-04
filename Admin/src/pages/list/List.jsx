@@ -4,15 +4,13 @@ import "./list.css";
 import { useEffect, useState } from "react";
 
 export default function List() {
-//   const location = useLocation();
-//   const list = location.list ;
-//   console.log(list);
+  // const location = useLocation();
+  // const list = location.list ;
   const [list, setList] = useState() ;
   const {id} = useParams() ;
 
-  useEffect(()=>{
     const ListData = async() => {
-      await axios.get(`http://localhost:8080/api/list/`,{
+      await axios.get(`http://localhost:8080/api/lists/find/${id}`,{
         headers: {
           token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
         }
@@ -20,7 +18,9 @@ export default function List() {
         setList(res.data) ;
       })
     }
-  },[id])
+  useEffect(()=>{
+    ListData() ;
+  },[])
 
   return (
     <div className="product">
@@ -60,6 +60,8 @@ export default function List() {
             <input type="text" placeholder={list.title} />
             <label>Type</label>
             <input type="text" placeholder={list.type} />
+            <label>Genre</label>
+            <input type="text" placeholder={list.genre} />
             <label>Genre</label>
             <input type="text" placeholder={list.genre} />
           </div>

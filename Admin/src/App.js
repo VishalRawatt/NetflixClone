@@ -31,10 +31,10 @@ function App() {
         <Route path="/user/:id" element={<User/>}/>
         <Route path="/newUser" element={<NewUser/>}/>
         <Route path="/movies" element={<MovieList/>}/>
-        <Route path="/movie/find/:id" element={<Movie/>}/>
+        <Route path="/movie/:id" element={<Movie/>}/>
         <Route path="/newMovie" element={<NewMovie/>}/>
         <Route path="/lists" element={<Listlist/>}/>
-        <Route path="/list/find/:id" element={<List/>}/>
+        <Route path="/lists/:id" element={<List/>}/>
         {/* <Route path="/newList" element={<NewProduct/>}/> */}
         </>
       }

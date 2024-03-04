@@ -10,7 +10,7 @@ export default function Movie() {
   const [movie, setMovie] = useState() ;
   const {id} = useParams() ;
 
-  useEffect(()=>{
+  
     const getData = async() => {
       await axios.get(`http://localhost:8080/api/movies/find/${id}`,{
         headers: {
@@ -20,11 +20,9 @@ export default function Movie() {
         setMovie(res.data) ;
       })
     }
-  },[id])
-  
-  const handleUpdate = () =>{
-    console.log("Button update");
-  }
+    useEffect(()=>{
+      getData() ;
+    },[])
 
   return (
     <div className="product">
@@ -90,7 +88,7 @@ export default function Movie() {
               </label>
               <input type="file" id="file" style={{ display: "none" }} />
             </div>
-            <button className="productButton" onClick={handleUpdate}>Update</button>
+            <button className="productButton" >Update</button>
           </div>
         </form>
       </div>
