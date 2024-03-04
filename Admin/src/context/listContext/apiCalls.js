@@ -26,11 +26,11 @@ export const getLists = async (dispatch) => {
   }
 };
 
-// //create
-export const createList = async (movie, dispatch) => {
+//create
+export const createList = async (list, dispatch) => {
   dispatch(createListStart());
   try {
-    const res = await axios.post("/lists", movie, {
+    const res = await axios.post("/lists", list, {
       headers: { 
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
