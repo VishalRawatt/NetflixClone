@@ -14,6 +14,7 @@ import Movie from "./pages/movie/Movie";
 import List from "./pages/list/List";
 import NewMovie from "./pages/newMovie/NewMovie";
 import MovieList from "./pages/movielist/MovieList";
+import NewList from "./pages/newList/NewList";
 
 function App() {
   const {user} = useContext(AuthContext);
@@ -35,7 +36,7 @@ function App() {
         <Route path="/newMovie" element={<NewMovie/>}/>
         <Route path="/lists" element={<Listlist/>}/>
         <Route path="/lists/:id" element={<List/>}/>
-        {/* <Route path="/newList" element={<NewProduct/>}/> */}
+        <Route path="/newList" element={<NewList/>}/>
         </>
       }
         </Routes>
