@@ -1,13 +1,29 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
+import axios from 'axios' 
 import '../watch/watch.scss';
 import { ArrowBackOutlined } from '@mui/icons-material';
-import { useLocation } from 'react-router-dom';
-import video from '../../components/video/video.mp4' ;
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function Watch() {
-  const location = useLocation()
-  const movie = location.movie ;
+  // const location = useLocation()
+  // const movie = location.movie ;
+  const [movie, setMovie] = useState() ;
+  const {id} = useParams() ;
+
+  
+    const getData = async() => {
+      await axios.get(`http://localhost:8080/api/movies/random`,{
+        headers: {
+          token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        }
+      }).then((res)=>{
+        setMovie(res.data) ;
+      })
+    }
+    useEffect(()=>{
+      getData() ;
+    },[])
   console.log(location) ;
   return (
     <div className='watch'>
@@ -18,7 +34,7 @@ function Watch() {
       </div>
       </Link>
       <video className="video"
-        autoPlay controls src={location.state.movie.trailer}>
+        autoPlay controls src={movie.video}>
       </video>
     </div>
   )

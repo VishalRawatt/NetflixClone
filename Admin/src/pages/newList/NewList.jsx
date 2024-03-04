@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import { storage } from "../../firebase";
 import { ListContext } from "../../context/listContext/ListContext";
 import { MovieContext } from "../../context/movieContext/MovieContext";
-import { getMovies, } from "../../context/movieContext/apiCalls";
+import { getMovies } from "../../context/movieContext/apiCalls";
 import { createList } from "../../context/listContext/apiCalls";
 import { useNavigate } from "react-router-dom";
 

@@ -3,7 +3,7 @@ import './featured.scss';
 import { InfoOutlined, PlayArrow } from '@mui/icons-material';
 import axios from 'axios';
 
-export default function Featured({ type }){
+export default function Featured({ type, setGenre }){
   const [content, setContent] = useState({}) ;
   useEffect(() =>{
     const getRandomContent = async()=>{
@@ -26,7 +26,7 @@ export default function Featured({ type }){
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" :"Series"}</span>
-          <select name = "genre" id="genre">
+          <select name = "genre" id="genre" onChange={(e)=>setGenre(e.target.value)}>
             <option value="Genre">Genre</option>
             <option value="Adventure">Adventure</option>
             <option value="Crime">Crime</option>

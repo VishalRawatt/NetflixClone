@@ -6,18 +6,17 @@ import { Link ,useNavigate } from 'react-router-dom';
 
 
 function Listitem({index,item}) {
-  const [isHovered, setisHovered] = useState(false);
-  const [movie, setMovie] = useState({name : '102fkd'}) ;
-  const leftValue = isHovered && (index.index * 225) - 50 + index.index * 2.5;
+  const [isHovered, setIsHovered] = useState(false);
+  const [movie, setMovie] = useState({}) ;
+  // const leftValue = isHovered && (index.index * 225) - 50 + index.index * 2.5;
   
-  const navigate = useNavigate() ;
   useEffect(()=>{
     const getMovie = async ()=>{
       try{
         const res = await axios.get("/movies/find/"+item,{
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OTk3N2Y0Njk3MzZmYjE1ZjM0MGVhZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwNzU3ODQwOCwiZXhwIjoxNzEwMTcwNDA4fQ.y4fpQXutLDZriEjOD_IoN_vKhZKYD8GZwv9NhRnUKTg",
+              "Bearer "+ JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setMovie(res.data) ;
@@ -29,17 +28,15 @@ function Listitem({index,item}) {
   },[item]) ;
 
   return (
-    <div onClick ={()=>{
-      navigate("/watch",{state: {movie: movie}})
-    }}>
+    <Link to={{ pathname: "/watch", movie: movie }}>
     <div
-      className='listItem'
-      style={{ left: leftValue }}
-      onMouseEnter={() => setisHovered(true)}
-      onMouseLeave={() => setisHovered(false)}
+      className="listItem"
+      style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <img
-        src={movie.img}
+        src={movie?.imgSm}
         alt='img' />
       {isHovered && (
         <div>
@@ -63,7 +60,7 @@ function Listitem({index,item}) {
         </div>
       )}
     </div>
-    </div>
+    </Link>
   )
 }
 

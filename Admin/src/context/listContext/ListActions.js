@@ -24,18 +24,18 @@ export const getListStart = () => ({
     type: "CREATE_LISTS_FAILURE",
   });
   
-  // export const updateListstart = () => ({
-  //   type: "UPDATE_MOVIE_START",
-  // });
+  export const updateListStart = () => ({
+    type: "UPDATE_LISTS_START",
+  });
   
-  // export const updateListsuccess = (movie) => ({
-  //   type: "UPDATE_MOVIE_SUCCESS",
-  //   payload: movie,
-  // });
+  export const updateListSuccess = (list) => ({
+    type: "UPDATE_LISTS_SUCCESS",
+    payload: list,
+  });
   
-  // export const updateMovieFailure = () => ({
-  //   type: "UPDATE_MOVIE_FAILURE",
-  // });
+  export const updateMovieFailure = () => ({
+    type: "UPDATE_LISTS_FAILURE",
+  });
   
   export const deleteListStart = () => ({
     type: "DELETE_LISTS_START",

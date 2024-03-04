@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import '../list/list.scss' ;
 import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from '@mui/icons-material';
 import Listitem from '../listitem/Listitem';
@@ -7,6 +7,8 @@ function List({list}) {
     const listRef = useRef() ;
     const [isMoved, setisMoved] = useState(false) ;
     const [slideNumber, setSlideNumber] = useState(0) ;
+    const [clickLimit, setClickLimit] = useState(window.innerWidth / 230);
+
     const handleClick = (direction) =>{
         setisMoved(true) ;
         let distance = listRef.current.getBoundingClientRect().x -50 ;
@@ -15,7 +17,7 @@ function List({list}) {
             listRef.current.style.transform =  `translateX(${230 + distance}px)` ;
         }
         console.log(distance) ;
-        if(direction === 'right' && slideNumber <5){
+        if(direction === 'right' && slideNumber <10 - clickLimit){
             setSlideNumber(slideNumber+1) ;
             listRef.current.style.transform =  `translateX(${-230 + distance}px)` ;
         }
