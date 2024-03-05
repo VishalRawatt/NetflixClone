@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './home.scss';
 import axios from 'axios';
 import Navbar from '../../components/navbar/Navbar';
@@ -23,6 +23,7 @@ const Home = ({ type }) => {
           }
         );
         setLists(res.data);
+        console.log(res.data) ;
       } catch (e) {
         console.error(e);
       }

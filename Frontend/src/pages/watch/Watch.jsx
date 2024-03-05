@@ -10,10 +10,9 @@ function Watch() {
   // const movie = location.movie ;
   const [movie, setMovie] = useState() ;
   const {id} = useParams() ;
-
   
     const getData = async() => {
-      await axios.get(`http://localhost:8080/api/movies/random`,{
+      await axios.get(`http://localhost:8080/api/movies/${id}`,{
         headers: {
           token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
         }
@@ -24,7 +23,6 @@ function Watch() {
     useEffect(()=>{
       getData() ;
     },[])
-  console.log(location) ;
   return (
     <div className='watch'>
       <Link to='/'>
