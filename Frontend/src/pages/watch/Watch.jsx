@@ -1,41 +1,65 @@
-import {useState, useEffect} from 'react'
-import axios from 'axios' 
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../watch/watch.scss';
 import { ArrowBackOutlined } from '@mui/icons-material';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { storage } from '../../firebase' ;
+import { getDownloadURL, listAll, ref } from "firebase/storage" ;
 
 function Watch() {
-  // const location = useLocation()
-  // const movie = location.movie ;
-  const [movie, setMovie] = useState() ;
-  const {id} = useParams() ;
-  
-    const getData = async() => {
-      await axios.get(`http://localhost:8080/api/movies/${id}`,{
-        headers: {
-          token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-        }
-      }).then((res)=>{
-        setMovie(res.data) ;
+  // const [movie, setMovie] = useState([]); 
+  // const { id } = useParams();
+
+  // const getData = async () => {
+  //   try {
+  //     const res = await axios.get(`http://localhost:8080/api/movies/${id}`, {
+  //       headers: {
+  //         token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+  //       },
+  //     });
+  //     setMovie([res.data]);
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // }, [id]); 
+
+  const [movie,setMovie] = useState('') ;
+  const [imgUrl, setImgUrl] = useState([]) ;
+  useEffect(() => {
+    listAll(ref(storage,"items")).then(imgs=>{
+      // console.log(imgs);
+      imgs.items.forEach(val =>{
+        getDownloadURL(val).then(url=>{
+          setImgUrl(data=>[...data,url])
+        })
       })
-    }
-    useEffect(()=>{
-      getData() ;
-    },[])
+    });
+  },[])
+
+  console.log(imgUrl, "imgUrl") ;
+
+
   return (
     <div className='watch'>
       <Link to='/'>
-      <div className="back">
-        <ArrowBackOutlined/>
-        Home
-      </div>
+        <div className="back">
+          <ArrowBackOutlined />
+          Home
+        </div>
       </Link>
-      <video className="video"
-        autoPlay controls src={movie.video}>
-      </video>
-    </div>
-  )
+      {/* {movie.map((m) => (
+        <div key={m._id}> */}
+          <video className="video" autoPlay controls src={movie.video}></video>
+        </div>
+    //   ))}
+    // </div>
+  );
 }
 
-export default Watch
+export default Watch;
