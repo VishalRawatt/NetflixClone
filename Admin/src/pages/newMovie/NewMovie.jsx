@@ -4,6 +4,7 @@ import { storage } from "../../firebase";
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { v4 } from "uuid";
 
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
@@ -24,8 +25,7 @@ export default function NewMovie() {
   const upload = (items) => {
     items.forEach((item) => {
       if (item.file) {
-        const fileName = new Date().getTime() + item.label + item.file.name;
-      const itemRef = ref(storage,`/items/${fileName}`) ;
+      const itemRef = ref(storage,`/items/${v4()}`) ;
       const uploadTask = uploadBytesResumable(itemRef, item.file) ;
       uploadTask.then((snapshot) => {
         getDownloadURL(snapshot.ref).then((url) => {

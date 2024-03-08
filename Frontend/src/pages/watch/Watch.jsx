@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { storage } from '../../firebase' ;
 import { getDownloadURL, listAll, ref } from "firebase/storage" ;
+import { v4 } from 'uuid' ;
 
 function Watch() {
   // const [movie, setMovie] = useState([]); 
@@ -32,7 +33,7 @@ function Watch() {
   const [movie,setMovie] = useState('') ;
   const [imgUrl, setImgUrl] = useState([]) ;
   useEffect(() => {
-    listAll(ref(storage,"items")).then(imgs=>{
+    listAll(ref(storage,`items${v4()}`)).then(imgs=>{
       // console.log(imgs);
       imgs.items.forEach(val =>{
         getDownloadURL(val).then(url=>{
