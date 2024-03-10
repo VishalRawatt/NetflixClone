@@ -12,6 +12,7 @@ function Register() {
   const emailRef = useRef() ;
   const passwordRef = useRef() ;
   const usernameRef = useRef() ;
+
   const handleStart = () =>{
     setemail(emailRef.current.value) ;
   }
@@ -20,10 +21,10 @@ function Register() {
     setpassword(passwordRef.current.value) ;
     setUsername(usernameRef.current.value) ;
     try{
-      await axios.post("auth/register", {email,username,password}) ;
+      await axios.post("/auth/register",{username,email, password}) ;
       navigate("/login") ;
     }catch(e){
-    console.log(e) ;
+    console.log(e) ; 
     }
   }
 
@@ -35,7 +36,7 @@ function Register() {
         src="https://cdn.geekwire.com/wp-content/uploads/2014/07/Netflix_Logo_Print_FourColorCMYK.png"
         alt='ntfllogo'/>
         <button className="loginButton">
-          Sign Up
+          Sign In
         </button>
       </div>
       </div>

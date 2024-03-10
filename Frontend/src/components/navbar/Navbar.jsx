@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './navbar.scss';
 import { ArrowDropDownCircleOutlined, Notifications, Search } from '@mui/icons-material';
 import { Avatar } from '@mui/material';
 import {Link} from "react-router-dom" ;
+import { AuthContext } from '../../authContext/AuthContext';
+import { logout } from '../../authContext/AuthAction';
 
 const Navbar = () => {
     const [isScrolled, setisScrolled] = useState(false) ;
+    const { dispatch } = useContext(AuthContext);
+
     window.onscroll = ()=>{
         setisScrolled(window.pageYOffset === 0 ? false : true);
         return ()=> (window.onscroll = null ) ;
@@ -17,12 +21,12 @@ const Navbar = () => {
                     <img src='https://imgs.search.brave.com/iMK0bpQOHFE9qAS6J2UI9mfJ97x8nhrepANtIF_PSds/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODBiNTdmY2Q5OTk2/ZTI0YmM0M2M1Mjku/cG5n' alt='logo' />
                     <span>Home</span>
                     <Link to="/series" className='link'>
-                        <span>
+                        <span className='navbarMainLinks'>
                             Series
                         </span>
                     </Link>
                     <Link to="/movies" className='link'>
-                        <span>
+                        <span className='navbarMainLinks'>
                             Movies
                         </span>
                     </Link>
@@ -38,7 +42,7 @@ const Navbar = () => {
                     <ArrowDropDownCircleOutlined className='icons'/>
                     <div className="options">
                         <span>Settings</span>
-                        <span>LogOut</span>
+                        <span onClick={ () => dispatch(logout())}>LogOut</span>
                     </div>
                     </div>
                     

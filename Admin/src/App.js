@@ -8,13 +8,13 @@ import User from "./pages/user/User";
 import NewUser from "./pages/newuser/NewUser";
 import Login from "./pages/login/Login";
 import { useContext } from "react";
-import { AuthContext } from "./context/authContext/AuthContext";
 import Listlist from "./pages/listList/Listlist";
 import Movie from "./pages/movie/Movie";
 import List from "./pages/list/List";
 import NewMovie from "./pages/newMovie/NewMovie";
 import MovieList from "./pages/movielist/MovieList";
 import NewList from "./pages/newList/NewList";
+import { AuthContext } from "./context/authContext/AuthContext";
 
 function App() {
   const {user} = useContext(AuthContext);
