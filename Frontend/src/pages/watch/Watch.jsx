@@ -10,7 +10,6 @@ import { v4 } from 'uuid' ;
 
 function Watch() {
   const [movie, setMovie] = useState([]);
-  const [movieD , setMovieD] = useState([]);
   const { id } = useParams();
 
   const getData = async () => {
