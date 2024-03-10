@@ -1,6 +1,7 @@
 import "./newMovie.css";
 import { useState, useContext } from "react";
-import { storage } from "../../firebase";
+import { storage, fStore } from "../../firebase";
+import { collection } from 'firebase/firestore' ;
 import { createMovie } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
