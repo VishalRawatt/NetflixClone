@@ -8,7 +8,6 @@ import { Link ,useNavigate } from 'react-router-dom';
 function Listitem({index,item}) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({}) ;
-  // const leftValue = isHovered && (index.index * 225) - 50 + index.index * 2.5;
   
   useEffect(()=>{
     const getMovie = async ()=>{

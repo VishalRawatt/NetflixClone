@@ -45,7 +45,7 @@ export default function Featured({ type, setGenre }){
       )}
       <img src={content.img} alt='background'/>
       <div className="info">
-        <img src={content.imgSm} alt='img' />
+        <img src={content.imgSm} alt='img' style={{width:"350px",height:"200px"}}/>
         <span className='desc'>
           {content.desc}
         </span>

@@ -16,7 +16,7 @@ export default function Home() {
       const res= await axios.get("/users/stats",{
         headers:{
           token:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1OTk3N2Y0Njk3MzZmYjE1ZjM0MGVhZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcwODQ0MzI3NCwiZXhwIjoxNzExMDM1Mjc0fQ.qDzh_ezs09Tec8rhgznnf3DieJug9VV19x09hxhWd-g"
+          "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken
         },
         }) ;
         const stateList = res.data.sort(function(a, b) {

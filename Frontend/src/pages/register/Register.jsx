@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import './register.scss' ; 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 function Register() {

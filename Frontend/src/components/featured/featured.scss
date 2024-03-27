@@ -35,9 +35,6 @@
         display: flex;
         flex-direction: column;
 
-        img{
-            width: 60vw;
-        }
         .desc{
             margin: 20px 0px;
             @include mobile{
