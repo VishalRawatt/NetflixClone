@@ -1,51 +1,51 @@
-export const getMoviesStart = () => ({
-    type: "GET_MOVIES_START",
+export const getUserStart = () => ({
+    type: "GET_USERS_START",
   });
   
-  export const getMoviesSuccess = (movies) => ({
-    type: "GET_MOVIES_SUCCESS",
-    payload: movies,
+  export const getUserSuccess = (user) => ({
+    type: "GET_USERS_SUCCESS",
+    payload: user,
   });
   
-  export const getMoviesFailure = () => ({
-    type: "GET_MOVIES_FAILURE",
+  export const getUserFailure = () => ({
+    type: "GET_USERS_FAILURE",
   });
   
-  export const createMovieStart = () => ({
-    type: "CREATE_MOVIE_START",
+  export const createUserStart = () => ({
+    type: "CREATE_USERS_START",
   });
   
-  export const createMovieSuccess = (movie) => ({
-    type: "CREATE_MOVIE_SUCCESS",
-    payload: movie,
+  export const createUserSuccess = (user) => ({
+    type: "CREATE_USERS_SUCCESS",
+    payload: user,
   });
   
-  export const createMovieFailure = () => ({
-    type: "CREATE_MOVIE_FAILURE",
+  export const createUserFailure = () => ({
+    type: "CREATE_USERS_FAILURE",
   });
   
-  export const updateMovieStart = () => ({
-    type: "UPDATE_MOVIE_START",
+  export const updateUserStart = () => ({
+    type: "UPDATE_USERS_START",
   });
   
-  export const updateMovieSuccess = (movie) => ({
-    type: "UPDATE_MOVIE_SUCCESS",
-    payload: movie,
+  export const updateUserSuccess = (user) => ({
+    type: "UPDATE_USERS_SUCCESS",
+    payload: user,
   });
   
-  export const updateMovieFailure = () => ({
-    type: "UPDATE_MOVIE_FAILURE",
+  export const updateUserFailure = () => ({
+    type: "UPDATE_USERS_FAILURE",
   });
   
-  export const deleteMovieStart = () => ({
-    type: "DELETE_MOVIE_START",
+  export const deleteUserStart = () => ({
+    type: "DELETE_USERS_START",
   });
   
-  export const deleteMovieSuccess = (id) => ({
-    type: "DELETE_MOVIE_SUCCESS",
+  export const deleteUserSuccess = (id) => ({
+    type: "DELETE_USERS_SUCCESS",
     payload: id,
   });
   
-  export const deleteMovieFailure = () => ({
-    type: "DELETE_MOVIE_FAILURE",
+  export const deleteUserFailure = () => ({
+    type: "DELETE_USERS_FAILURE",
   });
