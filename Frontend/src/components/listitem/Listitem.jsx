@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../listitem/listitem.scss';
 import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined } from '@mui/icons-material';
 import axios from 'axios';
-import { Link ,useNavigate } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 
 
 function Listitem({index,item}) {

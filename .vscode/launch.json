@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Wade/OneDrive/Desktop",
-      "program": "c:/Users/Wade/OneDrive/Desktop/build/Debug/outDebug",
+      "cwd": "d:/codes/FULL stack project/netflixclone/Frontend/src/pages/watch",
+      "program": "d:/codes/FULL stack project/netflixclone/Frontend/src/pages/watch/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

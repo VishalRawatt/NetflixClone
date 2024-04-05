@@ -29,22 +29,6 @@ function Watch() {
     getData();
   }, [id]);
 
-  // const [movie,setMovie] = useState('') ;
-  // const [imgUrl, setImgUrl] = useState([]) ;
-  // useEffect(() => {
-  //   listAll(ref(storage,`items/${v4()}`)).then(imgs=>{
-  //     console.log(imgs);
-  //     imgs.items.forEach(val =>{
-  //       getDownloadURL(val).then(url=>{
-  //         setImgUrl(data=>[...data,url])
-  //       })
-  //     })
-  //   });
-  // },[])
-
-  // console.log(imgUrl, "imgUrl") ;
-
-
   return (
     <div className='watch'>
       <Link to='/'>
